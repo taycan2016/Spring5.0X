@@ -249,7 +249,10 @@ public class ProxyFactoryBean extends ProxyCreatorSupport
 	@Override
 	@Nullable
 	public Object getObject() throws BeansException {
+		// 为代理对象配置Advisor链
+		// 循环将在配置文件中配置的通知器，按照链表的方式连接起来
 		initializeAdvisorChain();
+		// 先判断是否是单例
 		if (isSingleton()) {
 			return getSingletonInstance();
 		}
@@ -327,6 +330,8 @@ public class ProxyFactoryBean extends ProxyCreatorSupport
 			}
 			// Initialize the shared singleton instance.
 			super.setFrozen(this.freezeProxy);
+			// createAopProxy()先创建AOP,选择是使用JDK动态代理还是cglib代理，
+			// getProxy()再获取具体的代理对象采取不同的策略
 			this.singletonInstance = getProxy(createAopProxy());
 		}
 		return this.singletonInstance;
