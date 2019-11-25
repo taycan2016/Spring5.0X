@@ -1,4 +1,4 @@
-/*
+ /*
  * Copyright 2002-2018 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -234,6 +234,7 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 	 * not for actual use
 	 * @return an instance of the bean
 	 * @throws BeansException if the bean could not be created
+	 * 向IOC容器获取bean,触发依赖注入
 	 */
 	@SuppressWarnings("unchecked")
 	protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredType,

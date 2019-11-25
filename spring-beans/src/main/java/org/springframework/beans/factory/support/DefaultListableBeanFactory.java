@@ -785,6 +785,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 
 	//---------------------------------------------------------------------
 	// Implementation of BeanDefinitionRegistry interface
+	// 向IOC容器注解解析的beanDefinition
 	//---------------------------------------------------------------------
 
 	@Override
@@ -841,6 +842,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 			if (hasBeanCreationStarted()) {
 				// Cannot modify startup-time collection elements anymore (for stable iteration)
 				synchronized (this.beanDefinitionMap) {
+					// 存储beanDefinition
 					this.beanDefinitionMap.put(beanName, beanDefinition);
 					List<String> updatedDefinitions = new ArrayList<>(this.beanDefinitionNames.size() + 1);
 					updatedDefinitions.addAll(this.beanDefinitionNames);

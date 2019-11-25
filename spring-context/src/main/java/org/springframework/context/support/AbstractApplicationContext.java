@@ -513,12 +513,10 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	}
 
 	/**
-	 *
-	 * 1. 构建Be按Factory，以便产生所需要的bean定义实例
+	 * 1. 构建BeanFactory，以便产生所需要的bean定义实例
 	 * 2. 注册可能感兴趣的事件
 	 * 3. 创建bean 实例对象
 	 * 4. 触发被监听的事件
-	 *
 	 */
 	@Override
 	public void refresh() throws BeansException, IllegalStateException {
